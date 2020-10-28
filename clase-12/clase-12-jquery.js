@@ -3,7 +3,13 @@
 /// <reference types="jquery" />
 
 // const $header = document.querySelector('h1');
+
 // var $header = document.getElementsByTagName('h1')[0];
+
+
+
+
+/*
 const $header = $("h1");
 
 $header.text("Clase 12!");
@@ -25,7 +31,7 @@ $elementos.forEach(($elemento) => {
 */
 
 //algo para considerar con las arrow functions (no tienen this propio!)
-$elementos.click(() => {
+/*$elementos.click(() => {
   console.log(this); //window
 });
 
@@ -73,22 +79,40 @@ console.log("Esto pasa antes que la respuesta de $.ajax!");
 
 //fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 //usa promesas
+*/
 fetch("https://api.exchangeratesapi.io/latest")
   .then(respuesta => respuesta.json())
-  .then(respuestaJSON => {
-    $("h1").text(
-      `Cambios del día ${respuestaJSON.date} en base ${respuestaJSON.base}`
-    );
-
-    $("ul").html('');
-
-    Object.keys(respuestaJSON.rates).forEach(moneda => {
-      $("ul").append($(`<li>${moneda}: ${respuestaJSON.rates[moneda]}</li>`));
-    });
-  })
+  .then(respuestaJSON => console.log(respuestaJSON))
   .catch(error => console.error("FALLÓ", error));
 
 console.log("Esto pasa antes que la respuesta de fetch!");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Usar_promesas
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise
