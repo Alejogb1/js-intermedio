@@ -13,5 +13,49 @@ function fetchPokemonData(pokemon){
     .then(response => response.json())
     .then(function(pokeData){
     console.log(pokeData)
+    renderPokemon(pokeData)
     })
-  }
+}
+function renderPokemon(pokeData) {
+  let allPokemonContainer = document.getElementById("poke-container")
+
+  let pokeContainer = document.createElement("div")
+
+  let pokeName = document.createElement("h4")
+
+  let pokeHeight = document.createElement("p")
+
+  pokeName.innerText = "NAME: " + pokeData.name
+
+  pokeHeight.innerText ="HEIGHT: " + pokeData.height
+
+  let pokeUl = document.createElement("ul")
+
+  console.log(pokeData.id)
+
+  createTypes(pokeUl, pokeData.types)
+
+  createPokeImage(pokeData.id, pokeContainer)
+
+  allPokemonContainer.appendChild(pokeContainer)
+  pokeContainer.append(pokeName, pokeHeight, pokeUl)
+}
+function createTypes (ul, type) {
+  
+  type.forEach((type) => {
+
+    let pokeLi = document.createElement("li")
+
+    pokeLi.innerText = type["type"]["name"]
+
+    ul.append(pokeLi)
+  })
+}
+function createPokeImage (pokeId, container){
+
+  let pokeImg = document.createElement("img")
+
+  pokeImg.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeId}.png`
+
+  container.append(pokeImg)
+}

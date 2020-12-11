@@ -1,5 +1,5 @@
 {
-  "name": "clase-12",
+  "name": "y",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1",
-    "pokedex": "^1.1.0"
-  },
-  "devDependencies": {
-    "@types/jquery": "^3.3.31"
+    "tailwindcss": "^1.9.6"
   }
 }
