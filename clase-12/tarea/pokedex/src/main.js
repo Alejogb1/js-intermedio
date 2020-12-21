@@ -19,7 +19,11 @@ function fetchPokemonData(pokemon){
 function renderPokemon(pokeData) {
   let allPokemonContainer = document.getElementById("poke-container")
 
+  allPokemonContainer.classList.add("all-pokemon-container")
+  
   let pokeContainer = document.createElement("div")
+
+  pokeContainer.classList.add("poke-container")
 
   let pokeName = document.createElement("h4")
 

@@ -3,3 +3,22 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.all-pokemon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.poke-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+.poke-container img {
+    margin: 0 auto;
+    max-width: 80%;
+}
