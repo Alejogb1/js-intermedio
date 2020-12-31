@@ -1,6 +1,6 @@
 
 
- fetch('https://pokeapi.co/api/v2/pokemon')
+ fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=20')
  .then(response => response.json())
  .then(function(allpokemon){
  allpokemon.results.forEach(function(pokemon){
