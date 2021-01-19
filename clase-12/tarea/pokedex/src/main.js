@@ -3,22 +3,24 @@
 const botonNext = document.querySelector("#button-next")
 
 
+
  fetch('https://pokeapi.co/api/v2/pokemon')
  .then(response => response.json())
  .then(function(allpokemon){
+  let valueNext = allpokemon.next
  allpokemon.results.forEach((pokemon) => {
    fetchPokemonData(pokemon); 
  })
 })
   function fetchPokemonData(pokemon){
     let url = pokemon.url // <--- this is saving the pokemon url to a      variable to us in a fetch.(Ex: https://pokeapi.co/api/v2/pokemon/1/)
+    console.log(pokemon.url)
     fetch(url)
     .then(response => response.json())
     .then(function(pokeData){
     renderPokemon(pokeData)
     })
 }
-
 function renderPokemon(pokeData) {
   let allPokemonContainer = document.getElementById("poke-container")
 
@@ -38,7 +40,6 @@ function renderPokemon(pokeData) {
 
   let pokeUl = document.createElement("ul")
 
-  console.log(pokeData.id)
 
   createTypes(pokeUl, pokeData.types)
 
