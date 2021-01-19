@@ -2,27 +2,11 @@
 
 const botonNext = document.querySelector("#button-next")
 
-botonNext.Onclick = () => {
-  fetch('https://pokeapi.co/api/v2/pokemon?offset=20&limit=20')
- .then(response => response.json())
- .then(function(allpokemon){
- allpokemon.results.forEach(function(pokemon){
-   fetchPokemonData(pokemon); 
- })
-})
-}
-
-function verificarFetch () {
-  return new Promise(function(resolve, reject){
-    console.log("cargando...")
-    if()
-  })
-}
 
  fetch('https://pokeapi.co/api/v2/pokemon')
  .then(response => response.json())
  .then(function(allpokemon){
- allpokemon.results.forEach(function(pokemon){
+ allpokemon.results.forEach((pokemon) => {
    fetchPokemonData(pokemon); 
  })
 })
