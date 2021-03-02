@@ -1,13 +1,19 @@
 
 
 const botonNext = document.querySelector("#button-next")
+const botonPrevious = document.querySelector("#button-previous")
 
-
+let valueNext; 
+botonNext.onclick = () => {
+  console.log("En onclick: "+ valueNext)
+  fetch(valueNext)
+}
 
  fetch('https://pokeapi.co/api/v2/pokemon')
  .then(response => response.json())
  .then(function(allpokemon){
-  let valueNext = allpokemon.next
+   valueNext = allpokemon.next // valor de la url 
+   console.log( "dentro de fetch: ", valueNext)
  allpokemon.results.forEach((pokemon) => {
    fetchPokemonData(pokemon); 
  })
@@ -17,7 +23,7 @@ const botonNext = document.querySelector("#button-next")
     console.log(pokemon.url)
     fetch(url)
     .then(response => response.json())
-    .then(function(pokeData){
+    .then(function(pokeData){ 
     renderPokemon(pokeData)
     })
 }
